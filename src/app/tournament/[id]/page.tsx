@@ -89,8 +89,10 @@ export default async function TournamentPage({ params, searchParams }: Tournamen
 
         <article className={styles.block3}>
           <p className={styles.blockTitle}>BLOKAS 3</p>
-          <p className="font-head mt-1 text-xl text-[var(--bg-deep)]">{tournament.name}</p>
-          <p className="text-sm text-[var(--ink-soft)]">{tournament.country} • {tournament.season}</p>
+          <div className="w-full rounded-xl border border-dashed border-[var(--line)] bg-[#f9f8f3] px-4 py-3">
+            <p className="font-head text-xl text-[var(--bg-deep)]">Vieta logo / reklaminiam baneriui</p>
+            <p className="text-sm text-[var(--ink-soft)]">Galite ideti klubo logo, sponsoriaus vizuala arba promo juosta.</p>
+          </div>
         </article>
 
         <article className={styles.block4}>

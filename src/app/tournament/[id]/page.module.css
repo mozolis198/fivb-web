@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: 200px minmax(0, 1fr) 220px;
   grid-template-areas:
-    "b1 b4 b2"
-    "b1 b3 b2";
+    "b3 b3 b3"
+    "b1 b4 b2";
   gap: 12px;
   align-items: start;
 }
@@ -42,6 +42,9 @@
 
 .block3 {
   grid-area: b3;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
 }
 
 .block4 {
@@ -172,10 +175,10 @@
   .layout {
     grid-template-columns: 1fr;
     grid-template-areas:
+      "b3"
       "b1"
       "b2"
-      "b4"
-      "b3";
+      "b4";
   }
 
   .block2 {
