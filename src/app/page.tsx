@@ -191,6 +191,16 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm col-start-1" style={{ animationDelay: "190ms" }}>
+          <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 7</p>
+          <div className="glass rounded-2xl p-5 sm:p-6">
+            <div className="rounded-xl border border-dashed border-[var(--line)] bg-[#f9f8f3] px-4 py-6 text-center">
+              <p className="font-head text-2xl text-[var(--bg-deep)]">Papildoma vieta</p>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">Siame bloke gali buti akcijos, naujienu feed arba reklaminis skydelis.</p>
+            </div>
+          </div>
+        </section>
         </div>
 
         <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm col-start-2 row-start-1 self-start" style={{ animationDelay: "300ms" }}>
@@ -199,6 +209,25 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="font-head text-3xl text-[var(--bg-deep)]">Tournament Calendar</h2>
             <span className="rounded-full bg-[var(--foam)] px-3 py-1 text-xs font-semibold text-[var(--bg-deep)]">{filtered.length} events</span>
+          </div>
+
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a
+              href="/rankings/men"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[var(--bg-deep)] hover:border-[var(--accent)]"
+            >
+              Ranking - Men
+            </a>
+            <a
+              href="/rankings/women"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[var(--bg-deep)] hover:border-[var(--accent)]"
+            >
+              Ranking - Women
+            </a>
           </div>
 
           <div className="mt-4 grid gap-3 grid-cols-5">
@@ -237,6 +266,7 @@ export default function Home() {
               className="w-full rounded-xl border border-[var(--line)] bg-white px-3 py-2 text-sm outline-none focus:border-[var(--accent)]"
             />
           </div>
+
 
           <div className="mt-5 overflow-hidden rounded-2xl border border-[var(--line)] bg-white">
             <div className="hidden grid-cols-[1fr_auto_auto_auto] gap-2 border-b border-[var(--line)] bg-[var(--sand)]/35 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-[var(--ink-soft)] md:grid">
