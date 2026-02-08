@@ -124,43 +124,6 @@ export default function Home() {
   return (
     <div className="mx-auto min-h-screen w-full px-3 py-6 sm:px-6 sm:py-10">
       <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "40ms" }}>
-        <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 3</p>
-        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
-            <div className="flex items-center justify-between">
-              <h3 className="font-head text-3xl text-[var(--bg-deep)]">Weekly Focus</h3>
-              <span className="rounded-full bg-[#ffe0cb] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7f370d]">Featured</span>
-            </div>
-            {featured ? (
-              <div className="mt-4 rounded-2xl border border-[var(--line)] bg-white p-4">
-                <p className="text-xs uppercase tracking-[0.14em] text-[var(--ink-soft)]">{featured.tier}</p>
-                <p className="font-head mt-1 text-3xl text-[var(--bg-deep)]">{featured.name}</p>
-                <p className="mt-1 text-sm text-[var(--ink-soft)]">{featured.country} • {featured.menDate ?? "-"}</p>
-                <Link href={`/tournament/${featured.id}`} className="mt-4 inline-block rounded-full bg-[var(--bg-deep)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#0a526f]">Open tournament</Link>
-              </div>
-            ) : (
-              <p className="mt-4 text-sm text-[var(--ink-soft)]">No tournaments found for selected filters.</p>
-            )}
-          </article>
-
-          <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
-            <h3 className="font-head text-3xl text-[var(--bg-deep)]">Live Score</h3>
-            <div className="mt-4 grid gap-3">
-              {liveMatches.slice(0, 3).map((match) => (
-                <div key={match.id} className="rounded-2xl border border-[var(--line)] bg-white p-4">
-                  <div className="flex items-center justify-between text-[10px] uppercase tracking-wide text-[var(--ink-soft)]"><span>{match.court}</span><span>{match.clock}</span></div>
-                  <p className="mt-2 text-sm font-semibold text-[var(--bg-deep)]">{match.tournament}</p>
-                  <p className="mt-2 text-sm">{match.teams[0] ?? "-"}</p>
-                  <p className="text-sm">{match.teams[1] ?? "-"}</p>
-                </div>
-              ))}
-              {liveMatches.length === 0 && <p className="text-sm text-[var(--ink-soft)]">No live matches right now.</p>}
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "40ms" }}>
         <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 1</p>
       <header className="relative overflow-hidden rounded-2xl border border-[#ffffff80] bg-[linear-gradient(120deg,#083d56_0%,#0f5c7f_45%,#d96a2b_160%)] p-6 text-white shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-10">
         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/15 blur-2xl" />
@@ -186,9 +149,9 @@ export default function Home() {
       </section>
 
       <main className="mt-6 grid gap-6 sm:mt-8">
-        <section className="grid items-start gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "140ms" }}>
-          <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 4</p>
+        <section className="grid items-start gap-6 lg:grid-cols-[0.8fr_1.6fr_0.9fr]">
+        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm lg:col-start-1" style={{ animationDelay: "140ms" }}>
+          <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 5</p>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1">
           <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
             <h3 className="font-head text-3xl text-[var(--bg-deep)]">Ranking - Men</h3>
@@ -218,7 +181,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "300ms" }}>
+        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm lg:col-start-2" style={{ animationDelay: "300ms" }}>
           <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 2</p>
           <div className="glass rounded-2xl p-5 sm:p-7">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -316,6 +279,59 @@ export default function Home() {
               ))}
             </div>
           </div>
+          </div>
+        </section>
+
+        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm lg:col-start-3 lg:row-start-1" style={{ animationDelay: "220ms" }}>
+          <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 3</p>
+          <div className="grid gap-6">
+            <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
+              <div className="flex items-center justify-between">
+                <h3 className="font-head text-3xl text-[var(--bg-deep)]">Weekly Focus</h3>
+                <span className="rounded-full bg-[#ffe0cb] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7f370d]">Featured</span>
+              </div>
+              {featured ? (
+                <div className="mt-4 rounded-2xl border border-[var(--line)] bg-white p-4">
+                  <p className="text-xs uppercase tracking-[0.14em] text-[var(--ink-soft)]">{featured.tier}</p>
+                  <p className="font-head mt-1 text-3xl text-[var(--bg-deep)]">{featured.name}</p>
+                  <p className="mt-1 text-sm text-[var(--ink-soft)]">{featured.country} • {featured.menDate ?? "-"}</p>
+                  <Link href={`/tournament/${featured.id}`} className="mt-4 inline-block rounded-full bg-[var(--bg-deep)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#0a526f]">Open tournament</Link>
+                </div>
+              ) : (
+                <p className="mt-4 text-sm text-[var(--ink-soft)]">No tournaments found for selected filters.</p>
+              )}
+            </article>
+
+            <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
+              <h3 className="font-head text-3xl text-[var(--bg-deep)]">Live Score</h3>
+              <div className="mt-4 grid gap-3">
+                {liveMatches.slice(0, 3).map((match) => (
+                  <div key={match.id} className="rounded-2xl border border-[var(--line)] bg-white p-4">
+                    <div className="flex items-center justify-between text-[10px] uppercase tracking-wide text-[var(--ink-soft)]"><span>{match.court}</span><span>{match.clock}</span></div>
+                    <p className="mt-2 text-sm font-semibold text-[var(--bg-deep)]">{match.tournament}</p>
+                    <p className="mt-2 text-sm">{match.teams[0] ?? "-"}</p>
+                    <p className="text-sm">{match.teams[1] ?? "-"}</p>
+                  </div>
+                ))}
+                {liveMatches.length === 0 && <p className="text-sm text-[var(--ink-soft)]">No live matches right now.</p>}
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm lg:col-start-3 lg:row-start-2" style={{ animationDelay: "260ms" }}>
+          <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 4</p>
+          <div className="glass rounded-2xl p-5 shadow-sm sm:p-7">
+            <h3 className="font-head text-3xl text-[var(--bg-deep)]">Ranking - Men</h3>
+            <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--line)] bg-white">
+              {menRanking.slice(0, 10).map((row) => (
+                <div key={`m2-${row.rank}-${row.team}`} className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-[var(--line)] px-4 py-3 text-sm last:border-b-0">
+                  <span className="font-head text-xl text-[var(--bg-deep)]">{row.rank}</span>
+                  <span><b>{row.team}</b> <small className="text-[var(--ink-soft)]">{row.country}</small></span>
+                  <span className="font-semibold">{row.points}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         </section>
