@@ -123,29 +123,48 @@ export default function Home() {
 
   return (
     <div className="mx-auto min-h-screen w-full px-3 py-6 sm:px-6 sm:py-10">
-      <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "40ms" }}>
-        <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 1</p>
-      <header className="relative overflow-hidden rounded-2xl border border-[#ffffff80] bg-[linear-gradient(120deg,#083d56_0%,#0f5c7f_45%,#d96a2b_160%)] p-6 text-white shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-10">
+      <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-1.5 shadow-sm" style={{ animationDelay: "40ms" }}>
+        <p className="mb-1.5 rounded-lg bg-[#111] px-2.5 py-1 text-[13px] font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 1</p>
+      <header className="relative overflow-hidden rounded-2xl border border-[#ffffff80] bg-[linear-gradient(120deg,#083d56_0%,#0f5c7f_45%,#d96a2b_160%)] p-3.5 text-white shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-6">
         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/15 blur-2xl" />
         <p className="font-head text-xs uppercase tracking-[0.2em] text-white/70">Beach Volleyball Data Hub</p>
-        <h1 className="font-head mt-2 text-4xl leading-none sm:text-6xl">Beach Pro Calendar</h1>
-        <p className="mt-3 max-w-2xl text-sm text-white/85 sm:text-base">Gyvas turnyru kalendorius, reitingai ir livescore vienoje vietoje.</p>
+        <h1 className="font-head mt-1 text-[1.65rem] leading-none sm:text-[2.65rem]">Beach Pro Calendar</h1>
+        <p className="mt-1.5 max-w-2xl text-[11px] text-white/85 sm:text-[13px]">Gyvas turnyru kalendorius, reitingai ir livescore vienoje vietoje.</p>
 
-        <div className="mt-5 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-2xl border border-white/25 bg-white/10 p-3">
+        <div className="mt-2.5 grid gap-2 sm:grid-cols-3">
+          <div className="rounded-2xl border border-white/25 bg-white/10 p-2">
             <p className="text-[10px] uppercase tracking-[0.16em] text-white/75">Season</p>
-            <p className="font-head text-2xl">{season}</p>
+            <p className="font-head text-[1.05rem]">{season}</p>
           </div>
-          <div className="rounded-2xl border border-white/25 bg-white/10 p-3">
+          <div className="rounded-2xl border border-white/25 bg-white/10 p-2">
             <p className="text-[10px] uppercase tracking-[0.16em] text-white/75">Events</p>
-            <p className="font-head text-2xl">{filtered.length}</p>
+            <p className="font-head text-[1.05rem]">{filtered.length}</p>
           </div>
-          <div className="rounded-2xl border border-white/25 bg-white/10 p-3">
+          <div className="rounded-2xl border border-white/25 bg-white/10 p-2">
             <p className="text-[10px] uppercase tracking-[0.16em] text-white/75">Live now</p>
-            <p className="font-head text-2xl">{liveCount}</p>
+            <p className="font-head text-[1.05rem]">{liveCount}</p>
           </div>
         </div>
       </header>
+      </section>
+
+      <section className="fade-up mt-3 rounded-3xl border-2 border-[#1f1f1f] bg-white p-1 shadow-sm" style={{ animationDelay: "80ms" }}>
+        <p className="mb-1 rounded-lg bg-[#111] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 9</p>
+        <article className="glass rounded-2xl p-1.5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <h3 className="font-head text-base text-[var(--bg-deep)]">Live Score</h3>
+            <span className="text-[8px] font-semibold uppercase tracking-wide text-[var(--ink-soft)]">compact</span>
+          </div>
+          <div className="mt-1 grid gap-1 md:grid-cols-3">
+            {liveMatches.slice(0, 5).map((match) => (
+              <div key={`top-live-${match.id}`} className="rounded-xl border border-[var(--line)] bg-white px-2 py-1">
+                <div className="flex items-center justify-between text-[8px] uppercase tracking-wide text-[var(--ink-soft)]"><span>{match.court}</span><span>{match.clock}</span></div>
+                <p className="mt-0.5 text-[9px]">{(match.teams[0] ?? "-") + " vs " + (match.teams[1] ?? "-")}</p>
+              </div>
+            ))}
+            {liveMatches.length === 0 && <p className="text-[9px] text-[var(--ink-soft)]">No live matches right now.</p>}
+          </div>
+        </article>
       </section>
 
       <main className="mt-6 grid gap-6 sm:mt-8">
@@ -166,7 +185,11 @@ export default function Home() {
               ))}
             </div>
           </article>
+          </div>
+        </section>
 
+        <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "160ms" }}>
+          <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 8</p>
           <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
             <h3 className="font-head text-3xl text-[var(--bg-deep)]">Ranking - Women</h3>
             <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--line)] bg-white">
@@ -179,7 +202,6 @@ export default function Home() {
               ))}
             </div>
           </article>
-          </div>
         </section>
 
         <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "180ms" }}>
@@ -211,23 +233,30 @@ export default function Home() {
             <span className="rounded-full bg-[var(--foam)] px-3 py-1 text-xs font-semibold text-[var(--bg-deep)]">{filtered.length} events</span>
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-2">
-            <a
-              href="/rankings/men"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[var(--bg-deep)] hover:border-[var(--accent)]"
-            >
-              Ranking - Men
-            </a>
-            <a
-              href="/rankings/women"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[var(--bg-deep)] hover:border-[var(--accent)]"
-            >
-              Ranking - Women
-            </a>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            <div className="rounded-xl border border-[var(--line)] bg-white p-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--ink-soft)]">Ranking - Men</p>
+              <a
+                href="/rankings/men"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-block rounded-full bg-[var(--bg-deep)] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white hover:bg-[#0a526f]"
+              >
+                Open full ranking
+              </a>
+            </div>
+
+            <div className="rounded-xl border border-[var(--line)] bg-white p-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--ink-soft)]">Ranking - Women</p>
+              <a
+                href="/rankings/women"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-block rounded-full bg-[var(--bg-deep)] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white hover:bg-[#0a526f]"
+              >
+                Open full ranking
+              </a>
+            </div>
           </div>
 
           <div className="mt-4 grid gap-3 grid-cols-5">
@@ -327,39 +356,22 @@ export default function Home() {
         <div className="grid gap-2 col-start-3 row-start-1">
           <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "220ms" }}>
             <p className="mb-2 rounded-lg bg-[#111] px-3 py-2 text-sm font-extrabold uppercase tracking-[0.08em] text-white">BLOKAS 3</p>
-            <div className="grid gap-6">
-              <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-head text-3xl text-[var(--bg-deep)]">Weekly Focus</h3>
-                  <span className="rounded-full bg-[#ffe0cb] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7f370d]">Featured</span>
+            <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
+              <div className="flex items-center justify-between">
+                <h3 className="font-head text-3xl text-[var(--bg-deep)]">Weekly Focus</h3>
+                <span className="rounded-full bg-[#ffe0cb] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7f370d]">Featured</span>
+              </div>
+              {featured ? (
+                <div className="mt-4 rounded-2xl border border-[var(--line)] bg-white p-4">
+                  <p className="text-xs uppercase tracking-[0.14em] text-[var(--ink-soft)]">{featured.tier}</p>
+                  <p className="font-head mt-1 text-3xl text-[var(--bg-deep)]">{featured.name}</p>
+                  <p className="mt-1 text-sm text-[var(--ink-soft)]">{featured.country} • {featured.menDate ?? "-"}</p>
+                  <Link href={`/tournament/${featured.id}`} className="mt-4 inline-block rounded-full bg-[var(--bg-deep)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#0a526f]">Open tournament</Link>
                 </div>
-                {featured ? (
-                  <div className="mt-4 rounded-2xl border border-[var(--line)] bg-white p-4">
-                    <p className="text-xs uppercase tracking-[0.14em] text-[var(--ink-soft)]">{featured.tier}</p>
-                    <p className="font-head mt-1 text-3xl text-[var(--bg-deep)]">{featured.name}</p>
-                    <p className="mt-1 text-sm text-[var(--ink-soft)]">{featured.country} • {featured.menDate ?? "-"}</p>
-                    <Link href={`/tournament/${featured.id}`} className="mt-4 inline-block rounded-full bg-[var(--bg-deep)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#0a526f]">Open tournament</Link>
-                  </div>
-                ) : (
-                  <p className="mt-4 text-sm text-[var(--ink-soft)]">No tournaments found for selected filters.</p>
-                )}
-              </article>
-
-              <article className="glass rounded-2xl p-5 shadow-sm sm:p-7">
-                <h3 className="font-head text-3xl text-[var(--bg-deep)]">Live Score</h3>
-                <div className="mt-4 grid gap-3">
-                  {liveMatches.slice(0, 3).map((match) => (
-                    <div key={match.id} className="rounded-2xl border border-[var(--line)] bg-white p-4">
-                      <div className="flex items-center justify-between text-[10px] uppercase tracking-wide text-[var(--ink-soft)]"><span>{match.court}</span><span>{match.clock}</span></div>
-                      <p className="mt-2 text-sm font-semibold text-[var(--bg-deep)]">{match.tournament}</p>
-                      <p className="mt-2 text-sm">{match.teams[0] ?? "-"}</p>
-                      <p className="text-sm">{match.teams[1] ?? "-"}</p>
-                    </div>
-                  ))}
-                  {liveMatches.length === 0 && <p className="text-sm text-[var(--ink-soft)]">No live matches right now.</p>}
-                </div>
-              </article>
-            </div>
+              ) : (
+                <p className="mt-4 text-sm text-[var(--ink-soft)]">No tournaments found for selected filters.</p>
+              )}
+            </article>
           </section>
 
           <section className="fade-up rounded-3xl border-2 border-[#1f1f1f] bg-white p-2 shadow-sm" style={{ animationDelay: "260ms" }}>
